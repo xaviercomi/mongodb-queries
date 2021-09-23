@@ -1,1 +1,1 @@
-# mongodb-queries
+# mongoDB-queries
