@@ -1,0 +1,11 @@
+db.restaurants.find();
+db.restaurants.find( {}, {restaurant_id:1,name:1,address:1,borough:1,cuisine:1});
+db.restaurants.find( {}, {restaurant_id:1,name:1,address:1,borough:1,cuisine:1,_id:0});
+db.restaurants.find( {address: {zipcode: 1},restaurant_id:1,name:1,borough:1,cuisine:1,_id:0});
+db.restaurants.find( {borough: { $eq: 'Bronx' } });
+db.restaurants.find( {borough: { $eq: 'Bronx' } }).limit(5).pretty();
+db.restaurants.find( {borough: { $eq: 'Bronx' } }).skip().limit(5).pretty();
+db.restaurants.find( {grades: { $elemMatch: { score: { $gt: 90  }}}}, { name: 1, _id: 0 } ); 
+db.restaurants.find( {grades: { $elemMatch: { score: { $gt: 80, $lt: 100 } } } }, { name: 1, _id: 0}  ); 
+db.restaurants.find( {'address': { $elemMatch: { 'coord.2': { $lt: -95.754168 } } } }, { 'name': 1, '_id': 0 } );
+db.restaurants.find( {'cuisine': { $ne: 'American' }, 'grades':{elemMatch:{'score':{ $lt: 70}}}, 'address': {$elemMatch:{'coord.2': {$lt: -65.754168}}}}, {'name': 1, '_id': 0} );
