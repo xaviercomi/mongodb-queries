@@ -26,4 +26,7 @@ db.restaurants.find( {}, {'name': 1, 'address': 1, 'borough': 1}).sort({'name': 
 db.restaurants.find( {}, {'name': 1, 'address': 1, 'borough': 1}).sort({'name': -1}, {'address': -1}, {'borough': -1});
 db.restaurants.find( {}, {'cuisine': 1, 'borough': 1}).sort({'cuisine': 1}, {'borough': -1});
 db.restaurants.find( {'address.street': {$exists: false}}, {'name': 1, 'address.street': 1});
-db.restaurants.find( {'address.coord': {$type: 'double'}}, {'name': 1,});
+db.restaurants.find( {'address.coord': {$type: 'double'}}, {'name': 1,} );
+db.restaurants.aggregate();
+db.restaurants.find( {'name':/mon/}, {'name': 1, 'borough': 1, 'address.coord': 1, 'cuisine': 1});
+db.restaurants.find( {'name':/^Mad/}, {'name': 1, 'borough': 1, 'address.coord': 1, 'cuisine': 1});
